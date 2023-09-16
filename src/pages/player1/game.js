@@ -30,17 +30,48 @@ const Game1 = () => {
           if (val === null) acc.push(idx);
           return acc;
         }, []);
-
+  
         if (availableMoves.length > 0) {
-          const randomIdx = Math.floor(Math.random() * availableMoves.length);
-          const computerMove = availableMoves[randomIdx];
+          let computerMove;
+  
+          // Check for winning moves
+          for (const move of availableMoves) {
+            const boardCopy = [...board];
+            boardCopy[move] = 'O'; // Assume computer is 'O'
+            if (checkWinner(boardCopy, 'O')) {
+              computerMove = move;
+              break;
+            }
+          }
+  
+          // If no winning move, check for blocking moves
+          if (!computerMove) {
+            for (const move of availableMoves) {
+              const boardCopy = [...board];
+              boardCopy[move] = 'X'; // Assume player is 'X'
+              if (checkWinner(boardCopy, 'X')) {
+                computerMove = move;
+                break;
+              }
+            }
+          }
+  
+          // If no winning or blocking move, make a random move
+          if (!computerMove) {
+            const randomIdx = Math.floor(Math.random() * availableMoves.length);
+            computerMove = availableMoves[randomIdx];
+          }
+  
           handleBoxClick(computerMove);
         }
       }, delay);
-
+  
       return () => clearTimeout(computerMoveTimeout);
     }
   }, [xPlaying, computerTurn, board, gameOver]);
+  
+
+  
 
   const handleBoxClick = (boxIdx) => {
     if (!gameOver && !board[boxIdx]) {

@@ -3,12 +3,16 @@
   grid-template-columns: repeat(3, 6rem);
   place-items: center;
   justify-content: center;
+  padding: 30px 15px;
+  border: 3px solid rgb(159, 159, 159);
+  border-radius: 30px;
 }
+
 .box {
-  background-color: #b5b5b5;
+  background-color: #1f1f1f;
   border: none;
   border-radius: 10%;
-  box-shadow: 0px 0px 8px #e0c2c2;
+  box-shadow: 0px 0px 8px #ffffff;
   width: 5rem;
   height: 5rem;
   text-align: center;
@@ -21,17 +25,17 @@
 }
 
 .box:hover {
-  background-color: #4bf5e9;
+  background-color: #A4BDBA;
   transform: scale(1.05);
 }
 
 
 .x {
-  color: rgb(255, 70, 37);
+  color: #00eaff;
 }
 
 .o {
-  color: rgb(44, 135, 255);
+  color: #ff7400;
 }
 
 .box:hover {
@@ -40,14 +44,102 @@
 .reset-btn {
   border: none;
   border-radius: 0.5rem;
-  background-color: rgb(0, 110, 255);
-  color: white;
+  background-color: #202020;
+  color: #00ffcc;
   font-size: 2rem;
   padding: 0.5rem 1rem;
   margin: 2rem auto;
   display: block;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.reset-btn::before,
+.reset-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #00ffcc, #00ccff, #3300ff, #cc00ff);
+  z-index: -1;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
 }
 
 .reset-btn:hover {
-  background-color: rgb(0, 119, 255);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 110, 255, 0.5);
 }
+
+.reset-btn:hover::before,
+.reset-btn:hover::after {
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+/* Additional Sci-Fi Styling */
+.reset-btn::before {
+  content: "";
+  background-color: transparent;
+  border: 2px solid #00ffcc;
+  border-radius: 5px;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-color: #00ffcc;
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+
+
+
+
+.cool-button {
+  border: none;
+  background-color: #00ffcc;
+  color: #000;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  perspective: 1000px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  outline: none;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.cool-button::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  transform: rotateY(-90deg);
+  transition: transform 0.3s, background-color 0.3s;
+  pointer-events: none;
+}
+
+.cool-button:hover {
+  background-color: #ff007f;
+  transform: translateY(-5px);
+}
+
+.cool-button:hover::before {
+  transform: rotateY(0);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+

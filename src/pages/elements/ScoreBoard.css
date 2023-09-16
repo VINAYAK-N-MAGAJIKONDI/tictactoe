@@ -4,40 +4,75 @@
   align-items: center;
   width: 20rem;
   font-size: 1.5rem;
-  background-color: rgb(49, 49, 49);
+  background-color: #080808; /* Dark futuristic background color */
   margin: 3rem auto;
-  box-shadow: 0px 0px 8px #888888;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
   border-radius: 0.5rem;
   font-weight: bold;
-  padding: 1rem;
+  padding: 2rem; /* Increased padding for a futuristic look */
+  position: relative;
+  overflow: hidden; /* Clip the content inside */
+}
+
+/* Animated futuristic background */
+.scoreboard::before {
+  content: "";
+  position: absolute;
+  top: -50%; /* Move it off-screen */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(41, 214, 255, 0.6), rgba(255, 41, 197, 0.6), rgba(255, 173, 41, 0.6), rgba(41, 255, 100, 0.6)); /* Colorful animated gradient */
+  animation: moveBackground 10s linear infinite; /* Add animation */
+  z-index: -1;
+}
+
+@keyframes moveBackground {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(150%); /* Move the gradient down */
+  }
 }
 
 .winner {
-  color: rgb(234, 255, 46);
+  color: #FFD700; /* Futuristic pink color */
   text-align: center;
   padding: 1rem 0;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .score {
   width: 100%;
   text-align: center;
   padding: 0.5rem 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .x-playing, .o-playing {
   color: #fff;
   border-bottom: 5px solid transparent;
   text-align: center;
+  transition: all 0.3s ease-in-out;
 }
 
 .x-playing {
-  color: rgb(255, 70, 37);
-  border-bottom-color: rgb(255, 70, 37);
+  color: #00eaff; /* Futuristic blue color */
+  border-bottom-color: #00eaff;
   border-radius: 0.5rem 0rem 0rem 0.5rem;
 }
 
 .o-playing {
-  color: rgb(44, 135, 255);
-  border-bottom-color: rgb(44, 135, 255);
+  color: #ff7400; /* Futuristic orange color */
+  border-bottom-color: #ff7400;
   border-radius: 0rem 0.5rem 0.5rem 0rem;
+}
+
+/* Hover effect for players */
+.x-playing:hover, .o-playing:hover {
+  transform: scale(1.05);
 }
