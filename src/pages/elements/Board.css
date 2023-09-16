@@ -1,0 +1,53 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 6rem);
+  place-items: center;
+  justify-content: center;
+}
+.box {
+  background-color: #b5b5b5;
+  border: none;
+  border-radius: 10%;
+  box-shadow: 0px 0px 8px #e0c2c2;
+  width: 5rem;
+  height: 5rem;
+  text-align: center;
+  font-size: 5em;
+  font-family: "Fredoka", sans-serif;
+  font-weight: bold;
+  line-height: 5rem;
+  margin: 0.5rem;
+  transition: background-color 0.3s, transform 0.3s; 
+}
+
+.box:hover {
+  background-color: #4bf5e9;
+  transform: scale(1.05);
+}
+
+
+.x {
+  color: rgb(255, 70, 37);
+}
+
+.o {
+  color: rgb(44, 135, 255);
+}
+
+.box:hover {
+  box-shadow: 0px 0px 15px #888888;
+}
+.reset-btn {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: rgb(0, 110, 255);
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  margin: 2rem auto;
+  display: block;
+}
+
+.reset-btn:hover {
+  background-color: rgb(0, 119, 255);
+}

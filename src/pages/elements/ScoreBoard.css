@@ -1,0 +1,43 @@
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20rem;
+  font-size: 1.5rem;
+  background-color: rgb(49, 49, 49);
+  margin: 3rem auto;
+  box-shadow: 0px 0px 8px #888888;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.winner {
+  color: rgb(234, 255, 46);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.score {
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.x-playing, .o-playing {
+  color: #fff;
+  border-bottom: 5px solid transparent;
+  text-align: center;
+}
+
+.x-playing {
+  color: rgb(255, 70, 37);
+  border-bottom-color: rgb(255, 70, 37);
+  border-radius: 0.5rem 0rem 0rem 0.5rem;
+}
+
+.o-playing {
+  color: rgb(44, 135, 255);
+  border-bottom-color: rgb(44, 135, 255);
+  border-radius: 0rem 0.5rem 0.5rem 0rem;
+}
